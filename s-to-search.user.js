@@ -4,6 +4,7 @@
 // @namespace swalladge.id.au
 // @match *://www.wordreference.com/*
 // @match *://*.wiktionary.org/*
+// @match *://*.auslan.org.au/*
 // @grant none
 // @version     1.1.0
 // @author      Samuel Walladge <samuel@swalladge.id.au> (https://swalladge.id.au)
