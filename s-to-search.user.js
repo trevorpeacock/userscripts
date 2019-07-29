@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name S to search
 // @description Enables pressing 's' to focus the search input on various sites.
-// @namespace swalladge.id.au
+// @namespace swalladge.net
 // @match *://www.wordreference.com/*
 // @match *://*.wiktionary.org/*
 // @match *://*.auslan.org.au/*
 // @grant none
 // @version     1.1.0
-// @author      Samuel Walladge <samuel@swalladge.id.au> (https://swalladge.id.au)
+// @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
 
 

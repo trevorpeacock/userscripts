@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name        slack-direct
-// @namespace   swalladge.id.au
+// @namespace   swalladge.net
 // @description Bypass slack-redir
 // @include     https://*.slack.com/**
 // @version     1.1.0
-// @author      Samuel Walladge <samuel@swalladge.id.au> (https://swalladge.id.au)
+// @author      Samuel Walladge <samuel@swalladge.net>
 // @grant       none
 // ==/UserScript==
 

@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name        NCSS Tutor Dashboard Tools
-// @namespace   swalladge.id.au
+// @namespace   swalladge.net
 // @icon        https://static.groklearning-cdn.com/static/images/favicon.png
 // @description tutor dashboard tools: auto-assign all btn, desktop notifications
 // @include     https://groklearning.com/tutor-messaging/*
 // @version     1.1.0
 // @grant       none
-// @author      Samuel Walladge <samuel@swalladge.id.au> (swalladge.id.au)
+// @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
 
 
