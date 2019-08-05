@@ -16,6 +16,11 @@ Description of each script below.
 Tools to tweak the tutor dashboard UX on groklearning.
 Useful when tutoring the NCSS Challenge.
 
+## grok-red-view.user.js
+
+Tools to enhance the tutor red view on Grok. Also useful for the ncss
+challenge.
+
 ## s-to-search.user.js
 
 Focuses the search input when pressing `s` on supported sites. Currently
