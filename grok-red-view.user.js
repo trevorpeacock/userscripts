@@ -28,11 +28,9 @@ function main() {
   // Adds a button to copy the slide url as a markdown link.
   let copySlide = () => {
     let link = $("a:contains('View slide in course')");
-    console.trace(link);
     if (link.length !== 1) { return; }
     let url = link[0].href;
     let text = '[this slide](' + url + ')';
-    console.trace(text);
     navigator.clipboard.writeText(text);
   };
   let copyBtn = $('<a class="action"><span class="icon icon-copy"></span><span class="title">Copy mkd link</span></a>');
