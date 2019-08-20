@@ -6,7 +6,7 @@
 // @include     https://groklearning.com/tutor-messaging/*
 // @include     https://groklearning.com/learn/*
 // @include     https://groklearning.com/view-submissions/*
-// @version     2.0.0
+// @version     2.1.0
 // @grant       none
 // @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
@@ -83,14 +83,33 @@ function main() {
 
     } else if (/^\/learn\/.*/.test(window.location.pathname)) {
       // Adds a button to copy the slide url as a markdown link.
-      let copySlide = () => {
-        let url = window.location.href;
-        let text = '[this slide](' + url + ')';
-        navigator.clipboard.writeText(text);
+      let copySlide = (withTitle) => {
+        let inner = () => {
+          let url = window.location.href;
+
+          let title;
+          if (withTitle) {
+            title = $('#slide-title').text();
+          } else {
+            title = 'this slide';
+          }
+
+          let text = '[' + title + '](' + url + ')';
+          navigator.clipboard.writeText(text);
+        };
+        return inner;
       };
+
+      // Adds a button to copy the slide url as a markdown link.
       let copyBtn = $('<a class="action"><span class="icon icon-copy"></span><span class="title">Copy mkd link</span></a>');
       $('#action-bar-menu-left').append(copyBtn);
-      copyBtn.click(copySlide);
+      copyBtn.click(copySlide(false));
+
+      // Adds a button to copy the slide url as a markdown link (this time with
+      // the slide title).
+      let copyBtn2 = $('<a class="action"><span class="icon icon-copy"></span><span class="title">Copy mkd link (title)</span></a>');
+      $('#action-bar-menu-left').append(copyBtn2);
+      copyBtn2.click(copySlide(true));
     } else if (/^\/view-submissions\/.*/.test(window.location.pathname)) {
 
       // Adds a button to hide PII in the rare case when you need to get a
@@ -105,17 +124,36 @@ function main() {
       $('#action-bar-menu-left').append(btn);
       btn.click(hidePII);
 
-      // Adds a button to copy the slide url as a markdown link.
-      let copySlide = () => {
-        let link = $("a:contains('View slide in course')");
-        if (link.length !== 1) { return; }
-        let url = link[0].href;
-        let text = '[this slide](' + url + ')';
-        navigator.clipboard.writeText(text);
+
+      let copySlide = (withTitle) => {
+        let inner = () => {
+          let link = $("a:contains('View slide in course')");
+          if (link.length !== 1) { return; }
+          let url = link[0].href;
+
+          let title;
+          if (withTitle) {
+            title = $('#slide-title').text();
+          } else {
+            title = 'this slide';
+          }
+
+          let text = '[' + title + '](' + url + ')';
+          navigator.clipboard.writeText(text);
+        };
+        return inner;
       };
+
+      // Adds a button to copy the slide url as a markdown link.
       let copyBtn = $('<a class="action"><span class="icon icon-copy"></span><span class="title">Copy mkd link</span></a>');
       $('#action-bar-menu-left').append(copyBtn);
-      copyBtn.click(copySlide);
+      copyBtn.click(copySlide(false));
+
+      // Adds a button to copy the slide url as a markdown link (this time with
+      // the slide title).
+      let copyBtn2 = $('<a class="action"><span class="icon icon-copy"></span><span class="title">Copy mkd link (title)</span></a>');
+      $('#action-bar-menu-left').append(copyBtn2);
+      copyBtn2.click(copySlide(true));
     }
   });
 }
