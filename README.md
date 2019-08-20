@@ -13,13 +13,9 @@ Description of each script below.
 
 ## grok-tutor-dashboard.user.js
 
-Tools to tweak the tutor dashboard UX on groklearning.
+Tools to tweak the tutor UX on groklearning.
 Useful when tutoring the NCSS Challenge.
 
-## grok-red-view.user.js
-
-Tools to enhance the tutor red view on Grok. Also useful for the ncss
-challenge.
 
 ## s-to-search.user.js
 
@@ -30,11 +26,6 @@ supports:
 - wiktionary.org
 - wordreference.com
 
-## slack-redirect.user.js
-
-**CURRENTLY NOT WORKING ON NEW SLACK**
-
-Disables outgoing url tracking from slack.
 
 
 ## Installing
