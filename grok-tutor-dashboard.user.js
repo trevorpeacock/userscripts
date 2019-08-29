@@ -6,7 +6,7 @@
 // @include     https://groklearning.com/tutor-messaging/*
 // @include     https://groklearning.com/learn/*
 // @include     https://groklearning.com/view-submissions/*
-// @version     2.2.0
+// @version     2.2.1
 // @grant       none
 // @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
@@ -42,8 +42,16 @@ function main() {
         let backlogMsg = '';
         if (lenBacklog == 0) {
           backlogMsg = 'Backlog is clear! 🎉';
+        } else if (lenBacklog < 6) {
+          backlogMsg = `Backlog length: ${lenBacklog} 😎`;
+        } else if (lenBacklog < 11) {
+          backlogMsg = `Backlog length: ${lenBacklog} 😅`;
+        } else if (lenBacklog < 21) {
+          backlogMsg = `Backlog length: ${lenBacklog} 😟`;
+        } else if (lenBacklog < 31) {
+          backlogMsg = `Backlog length: ${lenBacklog} 😢`;
         } else {
-          backlogMsg = `Backlog length: ${lenBacklog}`;
+          backlogMsg = `Backlog length: ${lenBacklog} 😱`;
         }
         $('#backlog-len').html(backlogMsg);
 
