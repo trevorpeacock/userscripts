@@ -6,7 +6,7 @@
 // @include     https://groklearning.com/tutor-messaging/*
 // @include     https://groklearning.com/learn/*
 // @include     https://groklearning.com/view-submissions/*
-// @version     2.1.0
+// @version     2.2.0
 // @grant       none
 // @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
@@ -33,6 +33,24 @@ function main() {
       // create a custom box and add custom buttons to that (so that dynamic loading doesn't clobber changes we make)
       let customBox = $('<div class="component-container"><h4>Custom Controls</h4></div>');
       $("div.component-container.tutor-preferences").after(customBox);
+
+
+      // backlog stats
+      customBox.append($('<h4>Stats</h4><p id="backlog-len">backlog length loading...</p>'))
+      let updateBacklogStats = () => {
+        let lenBacklog = $('.thread-group.available > .thread-box').length;
+        let backlogMsg = '';
+        if (lenBacklog == 0) {
+          backlogMsg = 'Backlog is clear! 🎉';
+        } else {
+          backlogMsg = `Backlog length: ${lenBacklog}`;
+        }
+        $('#backlog-len').html(backlogMsg);
+
+      };
+      // kick it off and schedule regularly
+      window.setInterval(updateBacklogStats, 3000);
+
 
       // show/hide passed threads in replied or closed section
       customBox.append($('<h5>My Threads / Replied or closed</h5>'));
