@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name        NCSS Tutor Dashboard Tools
 // @namespace   swalladge.net
-// @icon        https://static.groklearning-cdn.com/static/images/favicon.png
+// @icon        https://assets.learn.groklearning-cdn.com/static/images/favicon.png
 // @description Tutor tools enhancements
 // @include     https://groklearning.com/tutor-messaging/*
 // @include     https://groklearning.com/learn/*
 // @include     https://groklearning.com/view-submissions/*
-// @version     2.2.1
+// @version     2.2.2
 // @grant       none
 // @author      Samuel Walladge <samuel@swalladge.net>
 // ==/UserScript==
