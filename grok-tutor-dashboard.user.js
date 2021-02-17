@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        NCSS Tutor Dashboard Tools
-// @namespace   swalladge.net
+// @name        [DEV]NCSS Tutor Dashboard Tools
+// @namespace   tp.swalladge.net
 // @icon        https://assets.learn.groklearning-cdn.com/static/images/favicon.png
 // @description Tutor tools enhancements
 // @include     https://groklearning.com/tutor-messaging/*
@@ -9,8 +9,24 @@
 // @version     2.2.2
 // @grant       none
 // @author      Samuel Walladge <samuel@swalladge.net>
+// @require https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // ==/UserScript==
 
+
+/* Test code to see if handlebars exists
+ * adding a userscript @require makes it appear here, but not in "main"
+function checkload() {
+    if (typeof jQuery != 'undefined' && typeof Handlebars != 'undefined') {
+      console.log('Gotit');
+      console.log(typeof Handlebars);
+      console.log(Handlebars);
+    } else {
+        console.log('Tryagain');
+        setTimeout(checkload, 200)
+    }
+};
+
+checkload();*/
 
 // this function injected into the page so it runs in the correct context
 function main() {
@@ -75,7 +91,16 @@ function main() {
 
 
       // desktop notifications (based on script by @forkbomb)
-      Notification.requestPermission();
+      /* Handlebars is not working.
+       * Can import it with
+       *   var script = document.createElement('script');
+       *   script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js');
+       *   (document.body || document.head || document.documentElement).appendChild(script)
+       * (not 100% sure why a userscript @require doesn't work)
+       * however referencing Handlebars.templates fails, and Handlebars.templates['chat-thread-state-change-notification-popup'] is read before defined
+       * Perhaps grok used to be using Handlebars?
+       */
+      /*Notification.requestPermission();
 
       Handlebars.templates['__chatThreadAssignment'] = Handlebars.templates['chat-thread-assignment-notification-popup'];
       Handlebars.templates['chat-thread-assignment-notification-popup'] = function() {
@@ -105,7 +130,7 @@ function main() {
             'icon': 'https://static.groklearning-cdn.com/static/images/favicon.png'
           });
         return Handlebars.templates['__chatThreadState'].apply(this, arguments);
-      };
+      };*/
 
     } else if (/^\/learn\/.*/.test(window.location.pathname)) {
       // Adds a button to copy the slide url as a markdown link.
